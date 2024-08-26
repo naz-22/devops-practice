@@ -9,3 +9,12 @@ echo "Number of  variables passed : $#"
 
 #--> $0 -->reads the name of  your  script.
 echo "script name : $0"
+
+#--> $PWD --> reads the present working directory you're in.
+echo "current working directory : $PWD"
+
+#--> $PWD --> reads the present working directory you're in.
+echo "current working directory : $PWD"
+
+#--> $HOME--> reads the home directory of the current user who's running the script.
+echo "Home directory of current script user: $HOME"
