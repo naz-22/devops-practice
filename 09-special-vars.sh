@@ -16,7 +16,11 @@ echo "current working directory : $PWD"
 #--> $HOME--> reads the home directory of the current user who's running the script.
 echo "Home directory of current script user: $HOME"
 
-#--> $$--> reads the process instance id of the current script you're running.
-echo "process instance id of the  current script : $$"
+#--> $$--> reads the process instance id(PID) of the current script you're running.
+echo "PID of current script : $$"
+
+sleep 100 &
+#--> $!--> reads the process instance id(PID) of the background command you've  runned.
+echo "PID of the background command: $!"
 
 
