@@ -1,4 +1,4 @@
 #/bin/bash
 
 echo "all variables passed to the script: $@"
-#echo "Number of  variables passed t:$#"
+echo "Number of  variables passed : $#"
