@@ -13,8 +13,10 @@ echo "script name : $0"
 #--> $PWD --> reads the present working directory you're in.
 echo "current working directory : $PWD"
 
-#--> $PWD --> reads the present working directory you're in.
-echo "current working directory : $PWD"
-
 #--> $HOME--> reads the home directory of the current user who's running the script.
 echo "Home directory of current script user: $HOME"
+
+#--> $$--> reads the process instance id of the current script you're running.
+echo "process instance id of the  current script : $$"
+
+
