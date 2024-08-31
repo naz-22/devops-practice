@@ -1,6 +1,14 @@
 #!/bin/bash/
 USERID=$(id -u)
-#echo "USER ID IS : $USERID"
+CHECK_ROOT()
+{
+if [ $USERID -ne 0  ]
+then
+    echo "plese run the script with root priviliges"
+    exit 1
+fi
+}
+
 VALIDATE()
 {
 if [ $1 -ne 0 ]
@@ -10,13 +18,8 @@ then
 else 
     echo "$2 is success"
 fi 
-
 }
-if [ $USERID -ne 0  ]
-then
-    echo "plese run the script with root priviliges"
-    exit 1
-fi
+
 
 dnf list installed git
 
@@ -27,7 +30,6 @@ then
     VALIDATE $? "installing git"
 else
     echo "git is already installed, nothing to do.."
-
 fi    
 
 dnf list installed mysql
