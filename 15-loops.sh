@@ -16,10 +16,10 @@ VALIDATE()
 {
 if [ $1 -ne 0 ]
 then 
-    echo -e "$2 is $R failed  $N"
+    echo -e "$package is $R failed  $N"
     exit 1
 else 
-    echo -e "$2 is  $G success $N"
+    echo -e "$package is  $G success $N"
 fi 
 }
 CHECK_ROOT
@@ -31,7 +31,7 @@ do
  dnf list installed  $package
  if [ $? -ne 0 ]
  then 
-    echo "$package is not installed .. going to install it..."
+    echo -e "$package is not installed .. going to install it..."
     dnf install $package -y
     Validate $? "installing $package "
 else
