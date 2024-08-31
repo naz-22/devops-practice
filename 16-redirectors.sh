@@ -30,7 +30,17 @@ else
     echo -e "$2 is  $G success $N"  &>>$LOG_FILE
 fi 
 }
-CHECK_ROOT
+
+USAGE()
+{
+    echo -e "$R USAGE is:: $N sudo sh 16-redirectors.sh package 1 package 2 ...."
+    exit 1
+}
+CHECK_ROOT 
+if [ $# -eq 0 ]
+then
+    USAGE
+fi
 
 for package in $@ # $@ referes to all arguments passed to script
 do
@@ -41,6 +51,6 @@ do
     dnf install $package -y
     VALIDATE $?    " installing $package " &>>$LOG_FILE
 else
-    echo "$package is already $Y installed nothing to do $N " &>>$LOG_FILE
+    echo -e "$package is already $Y installed nothing to do $N " &>>$LOG_FILE
 fi
 done
