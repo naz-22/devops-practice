@@ -9,6 +9,7 @@ mkdir -p $LOGS_FOLDER
 USERID=$(id -u)
 R="\e[31m"
 G="\e[32m"
+Y="\e[33m"
 N="\e[0m"
 CHECK_ROOT()
 {
@@ -30,3 +31,16 @@ else
 fi 
 }
 CHECK_ROOT
+
+for package in $@ # $@ referes to all arguments passed to script
+do
+ dnf list installed  $package &>>$LOG_FILE
+ if [ $? -ne 0 ]
+ then 
+    echo "$package is not installed .. going to install it..." &>>$LOG_FILE
+    dnf install $package -y
+    VALIDATE $?    " installing $package " &>>$LOG_FILE
+else
+    echo "$package is already $Y installed nothing to do $N " &>>$LOG_FILE
+fi
+done
