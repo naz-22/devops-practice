@@ -24,10 +24,10 @@ VALIDATE()
 {
  if [ $1 -ne 0 ]
  then 
-    echo -e "$2 is ... $R failed $N" &>>$LOG_FILE | tee -a $LOG_FILE 
+    echo -e "$2 is ... $R failed $N"  | tee -a $LOG_FILE 
     exit 1
  else 
-    echo -e "$2 is ...  $G success $N" &>>$LOG_FILE | tee -a $LOG_FILE 
+    echo -e "$2 is ...  $G success $N"  | tee -a $LOG_FILE 
  fi 
 
 }
@@ -51,8 +51,8 @@ do
  if [ $? -ne 0 ]
  then 
     echo "$package is not installed .. going to install it..." | tee -a $LOG_FILE 
-    dnf install $package -y
-    VALIDATE $?    " installing $package " &>>$LOG_FILE
+    dnf install $package -y &>>$LOG_FILE
+    VALIDATE $?    " installing $package " 
  else
     echo -e "$package is already $Y installed nothing to do $N " | tee -a $LOG_FILE 
  fi
