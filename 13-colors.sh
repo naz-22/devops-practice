@@ -35,11 +35,11 @@ else
     echo "git is already installed, nothing to do.."
 fi    
 
-dnf list installed mysql
+dnf list installed mysqlss
 if [ $? -ne 0 ]
 then 
     echo " mysql is not installed.., going to install it.."
-    dnf install mysql -y
+    dnf install mysqlss -y
     VALIDATE $? "installing mysql"
 else
     echo "mqsql is already installed .. nothing to do."
