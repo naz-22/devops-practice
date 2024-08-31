@@ -1,5 +1,5 @@
 #!/bin/bash
-for i in {0..10} #it means 0 to 10 values
+for i in {0..1000} #it means 0 to 10 values
 do
     echo $i
 done    
