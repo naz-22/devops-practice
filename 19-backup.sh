@@ -21,7 +21,7 @@ fi
 
 if [ ! -d $SOURCE_DIR ]
 then    
-    echo  "$SOURCE_DIR  $Rdoes not exists... please check " 
+    echo  "$SOURCE_DIR  does not exists... please check " 
 fi
 
 if [ ! -d $DEST_Dir ]
@@ -30,10 +30,11 @@ then
 fi
 
 FILES=$(find $SOURCE_DIR -name  "*.log" -mtime +14)
+echo "Files: $FILES"
 
 if [ -n FILES ]
 then
     echo "Files are found"
 else    
     echo "No files older than $DAYS "
-fi
+fi 
